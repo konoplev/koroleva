@@ -242,6 +242,15 @@
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         }
     })();
+    $('.fotorama')
+    .on('fotorama:show', function (e, fotorama) {    
+        if($(this).next('.fotorama-caption').length > 0) {
+            fotorama.$caption = fotorama.$caption || $(this).next('.fotorama-caption');
+            fotorama.$caption.text(fotorama.activeFrame.caption);
+            $('.fotorama__caption').hide();
+        }
+    })
+    .fotorama();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 
